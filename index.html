@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyberSecurity</title>
+    <!-- bootstrap(grid,layout,btn,forms) -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- bootstrap icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- icons like instagram, arrow -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+    />
+    <script src="js/choose.js"></script>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <strong>🔐 CyberSecurity</strong>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#blogs">Blogs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center">
+            <!-- search button -->
+            <button class="search-btn me-3" onclick="toggleSearch()">
+              <i class="bi bi-search"></i>
+            </button>
+            <div id="search-container" class="search-container">
+              <input
+                type="text"
+                id="search-input"
+                class="form-control"
+                placeholder="Search..."
+              />
+              <button class="close-btn" onclick="closeSearch()">&times;</button>
+            </div>
+            <script src="js/main.js"></script>
+
+            <!-- login button -->
+            <button
+              class="login-btn"
+              data-bs-toggle="modal"
+              data-bs-target="#loginModal"
+            >
+              <i class="bi bi-arrow-right"></i>Login
+            </button>
+
+            <!-- modal -->
+            <div
+              class="modal fade"
+              id="loginModal"
+              tabindex="-1"
+              aria-labelledby="loginModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content p-3">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Login</h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <!-- login form -->
+                    <form id="loginForm">
+                      <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="loginEmail"
+                          placeholder="Enter email"
+                          required
+                        />
+                        <small class="text-danger d-none" id="loginEmailError"
+                          >Invalid email format.</small
+                        >
+                      </div>
+                      <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="loginPassword"
+                          placeholder="Enter password"
+                          required
+                        />
+                        <small
+                          class="text-danger d-none"
+                          id="loginPasswordError"
+                          >Password must be at least 6 characters.</small
+                        >
+                      </div>
+                      <button type="submit" class="btn btn-primary w-100">
+                        Login
+                      </button>
+                    </form>
+
+                    <!-- sign up form-->
+                    <form id="signupForm" class="d-none">
+                      <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="signupEmail"
+                          placeholder="Enter email"
+                          required
+                        />
+                        <small class="text-danger d-none" id="signupEmailError"
+                          >Invalid email format.</small
+                        >
+                      </div>
+                      <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="signupPassword"
+                          placeholder="Enter password"
+                          required
+                        />
+                        <small
+                          class="text-danger d-none"
+                          id="signupPasswordError"
+                          >Password must be at least 6 characters.</small
+                        >
+                      </div>
+                      <div class="form-group">
+                        <label for="signupConfirmPassword"
+                          >Confirm Password</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="signupConfirmPassword"
+                          placeholder="Confirm password"
+                          required
+                        />
+                        <small
+                          class="text-danger d-none"
+                          id="signupConfirmPasswordError"
+                          >Passwords do not match.</small
+                        >
+                      </div>
+                      <button type="submit" class="btn btn-success w-100">
+                        Sign Up
+                      </button>
+                    </form>
+
+                    <p class="mt-3 text-center">
+                      <span id="toggleText">Don't have an account?</span>
+                      <span class="toggle-link" id="toggleForm">Sign up</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- background-img -->
+    <div class="hero-area" id="home">
+      <div class="container-fluid">
+        <div class="hero-content">
+          <div class="title">
+            <h1>A Proactive Approach to Digital Security.</h1>
+            <p>
+              In today's increasingly digital world, cybersecurity has become
+              paramount.
+            </p>
+            <p>
+              With the rapid expansion of online activities, the threat
+              landscape...
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="shape-1">
+        <img src="./Images/bg.jpg" alt="hero-shape" />
+      </div>
+    </div>
+
+    <!-- service-box -->
+    <div class="services-area pb-75 top-70">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-3 col-sm-6">
+            <div class="single-security-info">
+              <div class="date">01</div>
+              <h3>
+                <a
+                  class="single-security-item rd text-decoration-none"
+                  href="#"
+                >
+                  Security Management
+                </a>
+              </h3>
+              <p class="single-services-card">
+                Refers to the strategies, policies, and technologies used to
+                protect digital assets, networks, and data from cyber threats.
+              </p>
+              <a
+                class="read-more text-decoration-none"
+                href="./pages/services.html"
+              >
+                Read More
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="single-security-info">
+              <div class="date">02</div>
+              <h3>
+                <a class="text-decoration-none" href="#"> Data Privacy </a>
+              </h3>
+              <p>
+                Data privacy focuses on protecting personal, business, and
+                sensitive information from unauthorized access, misuse, and
+                breaches.
+              </p>
+              <a
+                class="read-more text-decoration-none"
+                href="./pages/services.html"
+              >
+                Read More
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="single-security-info">
+              <div class="date">03</div>
+              <h3>
+                <a class="text-decoration-none" href="#"> Network Security </a>
+              </h3>
+              <p>
+                Network security involves protecting computer networks from
+                cyber threats such as unauthorized access, hacking, malware, and
+                data breaches.
+              </p>
+              <a
+                class="read-more text-decoration-none"
+                href="./pages/services.html"
+              >
+                Read More
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="single-security-info">
+              <div class="date">04</div>
+              <h3>
+                <a class="text-decoration-none" href="#"> DDOS Protection </a>
+              </h3>
+              <p>
+                Distributed Denial-of-Service protection involves techniques,
+                tools, and best practices to detect, mitigate, and prevent such
+                attacks.
+              </p>
+              <a
+                class="read-more text-decoration-none"
+                href="./pages/services.html"
+              >
+                Read More
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- about us -->
+    <div class="about-area-area" id="about">
+      <div class="container">
+        <div class="row align-items-center fade-in">
+          <div class="col-lg-6">
+            <div class="about-title">
+              <span>About Us</span>
+              <h2>The Virtual Realm: An Expansive Guide to Cybersecurity.</h2>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="about-title">
+              <p>
+                Organizations are now compelled to complete comprehensive
+                cybersecurity strategies to safeguard their systems, networks,
+                and data from the relentless onslaught of cyber threats,
+                ensuring the protection of privacy...
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row fade-in">
+          <div class="col-lg-6">
+            <div class="about-image">
+              <img src="./Images/one.jpg" alt="about-image" />
+              <a
+                class="default-btn text-decoration-none"
+                href="./pages/about.html"
+                style="margin-left: 150px; margin-top: 20px"
+              >
+                Know More About
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="about-content">
+              <div class="content-card">
+                <div class="icon">🔐</div>
+                <div class="content">
+                  <h3>Highly Professional Members</h3>
+                </div>
+              </div>
+              <div class="content-card">
+                <div class="icon">🌐</div>
+                <div class="content">
+                  <h3>Infrastructure Integration Technology</h3>
+                </div>
+              </div>
+              <div class="content-card">
+                <div class="icon">🛡️</div>
+                <div class="content">
+                  <h3>Vulnerability Assessment & Penetration Testing</h3>
+                </div>
+              </div>
+              <div class="content-card">
+                <div class="icon">📊</div>
+                <div class="content">
+                  <h3>Security Information & Event Management</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- service-1-box -->
+    <div class="service-1" id="services">
+      <div class="services-area pb-75 top-70">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-6 col-md-7">
+              <div class="title">
+                <span>Our Services</span>
+                <h2>What We Do for Your Security.</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-3 col-sm-6">
+              <div class="single-security-info">
+                <div class="date">05</div>
+                <h3>
+                  <a
+                    class="single-security-item rd text-decoration-none"
+                    href="#"
+                  >
+                    Application Security
+                  </a>
+                </h3>
+                <p class="single-services-card">
+                  Application security focuses on protecting applications from
+                  vulnerabilities and cyberattacks during development and after
+                  deployment.
+                </p>
+                <a
+                  class="read-more text-decoration-none"
+                  href="./pages/services.html"
+                >
+                  Read More
+                  <i class="ri-arrow-right-line"></i>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <div class="single-security-info">
+                <div class="date">06</div>
+                <h3>
+                  <a class="text-decoration-none" href="#">
+                    Cloud-native Security
+                  </a>
+                </h3>
+                <p>
+                  Cloud-native security focuses on protecting applications and
+                  workloads built for cloud environments using containers.
+                </p>
+                <a
+                  class="read-more text-decoration-none"
+                  href="./pages/services.html"
+                >
+                  Read More
+                  <i class="ri-arrow-right-line"></i>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <div class="single-security-info">
+                <div class="date">07</div>
+                <h3>
+                  <a class="text-decoration-none" href="#">
+                    Infrastructure Security
+                  </a>
+                </h3>
+                <p>
+                  Infrastructure security focuses on securing physical and
+                  digital assets, including networks, servers, databases, and
+                  cloud environments.
+                </p>
+                <a
+                  class="read-more text-decoration-none"
+                  href="./pages/services.html"
+                >
+                  Read More
+                  <i class="ri-arrow-right-line"></i>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <div class="single-security-info">
+                <div class="date">08</div>
+                <h3>
+                  <a class="text-decoration-none" href="#"> Data Security </a>
+                </h3>
+                <p>
+                  Data security focuses on protecting digital information from
+                  unauthorized access, corruption, and theft.It involves
+                  encryption, access controls, compliance
+                </p>
+                <a
+                  class="read-more text-decoration-none"
+                  href="./pages/services.html"
+                >
+                  Read More
+                  <i class="ri-arrow-right-line"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- choose-us -->
+    <div class="choose-area">
+      <div class="container">
+        <div class="row fade-in">
+          <div class="col-lg-6">
+            <div class="choose-content">
+              <div class="title">
+                <span>Why Choose Us?</span>
+              </div>
+              <div class="choose-value">
+                <i class="ri-check-double-fill"></i>
+                <span>Vulnerability Assessment and Penetration Testing</span>
+              </div>
+              <div class="choose-value">
+                <i class="ri-check-double-fill"></i>
+                <span>Identity and Access Management (IAM)</span>
+              </div>
+              <div class="choose-value">
+                <i class="ri-check-double-fill"></i>
+                <span>Security Information and Event Management</span>
+              </div>
+              <div class="choose-value">
+                <i class="ri-check-double-fill"></i>
+                <span>Security Auditing and Compliance</span>
+              </div>
+              <div class="choose-value">
+                <i class="ri-check-double-fill"></i>
+                <span>This service involves responding to security</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="choose-image">
+              <img src="./Images/5.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- pricing-box -->
+    <div class="pricing-area">
+      <div class="container">
+        <div class="section-title">
+          <span>Awesome Pricing Plans</span>
+          <h2>Uncovering the Ideal Plan for Your Needs.</h2>
+        </div>
+        <div class="row justify-content-center" id="pricing-container">
+          <script src="js/pricing.js"></script>
+        </div>
+      </div>
+    </div>
+    <!-- blogs -->
+    <div class="container" id="blogs">
+      <div class="b-title">
+        <span>Our Blog</span>
+        <h2>Latest Blogs & Articles</h2>
+      </div>
+      <div class="blog-row">
+        <div class="single-blog-card">
+          <div class="image">
+            <a href="#">
+              <img src="./Images/2.jpg" alt="Cybersecurity Tips" />
+            </a>
+          </div>
+          <div class="content">
+            <ul class="list">
+              <li>
+                <i class="ri-user-line"></i> By
+                <a href="#" class="name">Sarah Johnson</a>
+              </li>
+              <li><i class="ri-calendar-2-line"></i> February 10, 2025</li>
+            </ul>
+            <h3>
+              <a href="#">Top 5 Cybersecurity Tips for Small Businesses</a>
+            </h3>
+            <a class="read-more" href="./pages/blog.html">
+              Read More <i class="ri-arrow-right-line"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="single-blog-card">
+          <div class="image">
+            <a href="#">
+              <img src="./Images/3.jpg" alt="Cloud Security" />
+            </a>
+          </div>
+          <div class="content">
+            <ul class="list">
+              <li>
+                <i class="ri-user-line"></i> By
+                <a href="#" class="name">Michael Adams</a>
+              </li>
+              <li><i class="ri-calendar-2-line"></i> February 8, 2025</li>
+            </ul>
+            <h3><a href="#">How to Secure Your Data in the Cloud</a></h3>
+            <a class="read-more" href="./pages/blog.html">
+              Read More <i class="ri-arrow-right-line"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="single-blog-card">
+          <div class="image">
+            <a href="#">
+              <img src="./Images/4.jpg" alt="Phishing Attack Prevention" />
+            </a>
+          </div>
+          <div class="content">
+            <ul class="list">
+              <li>
+                <i class="ri-user-line"></i> By
+                <a href="#" class="name">Emma Williams</a>
+              </li>
+              <li><i class="ri-calendar-2-line"></i> February 5, 2025</li>
+            </ul>
+            <h3>
+              <a href="#">Phishing Attacks: How to Identify & Prevent Them</a>
+            </h3>
+            <a class="read-more" href="./pages/blog.html">
+              Read More <i class="ri-arrow-right-line"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="footer bg-dark text-white py-4" id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <h5>Contact Us</h5>
+            <ul class="list-unstyled">
+              <li><i class="bi bi-geo-alt"></i> 123 Street, City, Country</li>
+              <li><i class="bi bi-envelope"></i> email@example.com</li>
+              <li><i class="bi bi-phone"></i> +123 456 7890</li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <h5>Follow Us</h5>
+            <ul class="list-unstyled d-flex">
+              <li>
+                <a href="#" class="text-white me-3"
+                  ><i class="bi bi-facebook"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" class="text-white me-3"
+                  ><i class="bi bi-twitter"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" class="text-white me-3"
+                  ><i class="bi bi-linkedin"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" class="text-white me-3"
+                  ><i class="bi bi-instagram"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="#home" class="text-white">Home</a></li>
+              <li><a href="#about" class="text-white">About</a></li>
+              <li><a href="#services" class="text-white">Services</a></li>
+              <li><a href="#blogs" class="text-white">Blogs</a></li>
+              <li><a href="#contact" class="text-white">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
